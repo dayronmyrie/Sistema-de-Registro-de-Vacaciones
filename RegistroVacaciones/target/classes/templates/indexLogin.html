@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="styleLogin.css">
+</head>
+<body>
+<header>
+    <h4>Sistema de Vacaciones</h4>
+</header>
+<div class="formulario">
+    <h1>Login</h1>
+    <form action="inicioSesion" method="post">
+        <div class="identificacion">
+            <label for="id">Identificación</label>
+            <div class="input-container">
+                <span class="icon">&#9993;</span>
+                <input type="text" id="id" name="id" placeholder="Identificación" required>
+            </div>
+        </div>
+        <div class="contraseña">
+            <label for="password">Contraseña</label>
+            <div class="input-container">
+                <span class="icon">&#128274;</span>
+                <input type="password" id="password" name="password" placeholder="Contraseña" required>
+            </div>
+        </div>
+        <input type="submit" value="Login">
+    </form>
+</div>
+
+<footer>
+    <p>&copy; Sistema de Vacaciones</p>
+</footer>
+
+</body>
+</html>

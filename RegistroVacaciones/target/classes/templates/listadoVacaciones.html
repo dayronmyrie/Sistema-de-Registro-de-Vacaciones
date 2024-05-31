@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Vacaciones</title>
+    <link rel="stylesheet" type="text/css" href="styleListadoVacaciones.css">
+</head>
+<body>
+<header>
+    <h1>Listado de Vacaciones</h1>
+
+    <nav>
+        <li><a href="login">LogOut</a></li>
+    </nav>
+</header>
+
+<div class="table-container">
+    <h2>Vacaciones Registradas</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Fecha de Inicio</th>
+            <th>Fecha de Fin</th>
+            <th>Días de Vacaciones</th>
+            <th>Cancelar vacaciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="vacacion, vacacionIndex : ${funcionario.listaVacaciones}">
+            <td th:text="${vacacion.getDia() + '/' + vacacion.getMes() + '/' + vacacion.getAnio()}"></td>
+            <td th:text="${vacacion.getDiaFin() + '/' + vacacion.getMesFin() + '/' + vacacion.getAnioFin()}"></td>
+            <td th:text="${T(java.time.temporal.ChronoUnit).DAYS.between(
+                T(java.time.LocalDate).of(vacacion.getAnio(), vacacion.getMes(), vacacion.getDia()),
+                T(java.time.LocalDate).of(vacacion.getAnioFin(), vacacion.getMesFin(), vacacion.getDiaFin())
+            ) + 1}"></td>
+            <td>
+                <form th:action="@{/cancelarVacaciones}" method="post">
+                    <input type="hidden" name="indiceVacacion" th:value="${vacacionIndex.index}"/>
+                    <input type="submit" value="Cancelar"/>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="button-container" style="text-align: center; margin-top: 20px;">
+    <a href="indexVacaciones" class="button">Regresar a Registrar Vacaciones</a>
+</div>
+
+<footer>
+    <p>@sistema_vacaciones</p>
+</footer>
+</body>
+</html>
