@@ -5,3 +5,4 @@ Sistema que permite a un funcionario de una empresa agregado por Listas iniciar 
 
 
 
+![Captura de pantalla 2024-05-30 213919](https://github.com/dayronmyrie/SistemaVacaciones/assets/120540128/b3e2bea8-6648-4626-a83e-6b82e79fec8b)
